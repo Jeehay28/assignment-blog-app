@@ -9,11 +9,9 @@ export function getPostSlugs() {
 }
 
 export function getPostBySlug(slug: string) {
-  const filePath = join(postsDirectory, slug);
-  const fileContent = fs.readFileSync(filePath, 'utf-8');
-  const { data, content } = matter(fileContent);
-
-  console.log(filePath)
+  const fullPath = join(postsDirectory, slug);
+  const fileContents = fs.readFileSync(fullPath, 'utf8');
+  const { data, content } = matter(fileContents);
 
   return {
     slug,
